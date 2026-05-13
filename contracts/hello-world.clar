@@ -1,17 +1,16 @@
-;; A read-only function that returns a message
+(define-constant err-check-failed (err u100))
+
 (define-read-only (say-hi)
   (ok "Hello World")
 )
 
-;; A read-only function that returns an input number
-(define-read-only (echo-number (val int))
+(define-read-only (echo-number (val uint))
   (ok val)
 )
 
-;; A public function that conditionally returns an ok or an error
-(define-public (check-it (flag bool))
+(define-read-only (check-it (flag bool))
   (if flag
-    (ok 1)
-    (err u100)
+    (ok u1)
+    err-check-failed
   )
 )
